@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { TrendingUp, ShoppingCart, AlertTriangle, Settings, BarChart2, LineChart } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Portfolio", icon: BarChart2 },
+  { href: "/dashboard", label: "Portfolio", icon: BarChart2 },
   { href: "/performance", label: "Performance", icon: LineChart },
   { href: "/buy", label: "Buy Ideas", icon: ShoppingCart },
   { href: "/sell", label: "Sell Signals", icon: AlertTriangle },
@@ -18,7 +18,7 @@ export default function Nav() {
   return (
     <nav className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 h-14 flex items-center gap-6">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-foreground mr-4">
+        <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-foreground mr-4">
           <TrendingUp className="h-5 w-5 text-green-500" />
           <span>MyPortfolio</span>
         </Link>
