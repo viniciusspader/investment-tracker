@@ -1,21 +1,27 @@
 import Link from "next/link";
-import { TrendingUp, BarChart2, Brain, ArrowRight } from "lucide-react";
+import { ChartLineUp, Newspaper, ArrowRight, MagnifyingGlassChart } from "@phosphor-icons/react/dist/ssr";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gray-950 flex flex-col text-white">
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
 
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-2xl mx-auto w-full border-b border-white/5">
         <div className="flex items-center gap-2">
-          <TrendingUp size={18} className="text-emerald-400" />
+          <ChartLineUp size={18} weight="duotone" className="text-emerald-400" />
           <span className="font-bold text-sm">Investment Tracker</span>
         </div>
         <Link
           href="/dashboard"
           className="flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
         >
-          Open dashboard <ArrowRight size={14} />
+          Open dashboard <ArrowRight size={14} weight="bold" />
         </Link>
       </nav>
 
@@ -25,7 +31,7 @@ export default function LandingPage() {
           className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-8"
           style={{ animation: "fadeUp 0.5s ease both" }}
         >
-          <BarChart2 size={28} className="text-emerald-400" />
+          <ChartLineUp size={28} weight="duotone" className="text-emerald-400" />
         </div>
 
         <h1
@@ -50,7 +56,7 @@ export default function LandingPage() {
           style={{ animation: "fadeUp 0.5s 0.24s ease both" }}
         >
           Open dashboard
-          <ArrowRight size={16} />
+          <ArrowRight size={16} weight="bold" />
         </Link>
       </main>
 
@@ -61,16 +67,16 @@ export default function LandingPage() {
       >
         <div className="grid grid-cols-3 gap-3">
           {[
-            { icon: BarChart2, label: "Analyst consensus", desc: "Aggregated buy/hold/sell ratings." },
-            { icon: TrendingUp, label: "Fundamentals", desc: "P/E, EPS, revenue trends." },
-            { icon: Brain, label: "AI thesis", desc: "Claude generates per-holding insights." },
+            { icon: MagnifyingGlassChart, label: "Analyst consensus", desc: "Aggregated buy/hold/sell ratings." },
+            { icon: ChartLineUp, label: "Fundamentals", desc: "P/E, EPS, revenue trends." },
+            { icon: Newspaper, label: "AI thesis", desc: "Claude generates per-holding insights." },
           ].map(({ icon: Icon, label, desc }) => (
             <div
               key={label}
               className="bg-white/4 border border-white/8 rounded-2xl p-4 flex flex-col gap-2 hover:bg-white/6 transition-colors"
             >
               <div className="w-9 h-9 bg-emerald-500/10 rounded-xl flex items-center justify-center">
-                <Icon size={18} className="text-emerald-400" />
+                <Icon size={18} weight="duotone" className="text-emerald-400" />
               </div>
               <p className="text-xs font-semibold text-white leading-tight">{label}</p>
               <p className="text-[11px] text-gray-500 leading-tight">{desc}</p>
@@ -82,13 +88,6 @@ export default function LandingPage() {
       <footer className="text-center pb-8 text-xs text-gray-700">
         Personal tool · Not financial advice
       </footer>
-
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }
